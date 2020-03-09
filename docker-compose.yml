@@ -6,6 +6,7 @@ services:
     volumes:
       - ./php.ini:/usr/local/etc/php/php.ini
       - ./html:/var/www/html
+      - ./news_data:/var/www/news_data
     ports:
       - 8080:80
   db:
