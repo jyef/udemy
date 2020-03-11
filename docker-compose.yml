@@ -3,6 +3,8 @@ version: "3"
 services:
   php:
     build: .
+    tty: true
+    stdin_open: true
     volumes:
       - ./php.ini:/usr/local/etc/php/php.ini
       - ./html:/var/www/html
@@ -18,3 +20,16 @@ services:
       - ./db/data:/var/lib/mysql
     ports:
       - 3306:3306
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    depends_on:
+      - db
+    ports:
+       - 8084:80
+    volumes:
+       - "./phpmyadmin/sessions:/sessions"
