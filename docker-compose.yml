@@ -20,3 +20,16 @@ services:
       - ./db/data:/var/lib/mysql
     ports:
       - 3306:3306
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=password
+    links:
+      - mysql
+    ports:
+       - 8084:80
+    volumes:
+       - "./phpmyadmin/sessions:/sessions"
