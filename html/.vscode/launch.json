@@ -6,6 +6,8 @@
       "type": "php",
       "request": "launch",
       "port": 9000,
+      "stopOnEntry": true,
+      "log": true,
       "pathMappings": {
         "/var/www/html": "${workspaceFolder}"
       }
