@@ -7,8 +7,7 @@ services:
     stdin_open: true
     volumes:
       - ./php.ini:/usr/local/etc/php/php.ini
-      - ./html:/var/www/html
-      - ./news_data:/var/www/news_data
+      - ./:/var/www/
     ports:
       - 8080:80
   db:
